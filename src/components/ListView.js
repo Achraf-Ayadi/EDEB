@@ -42,7 +42,7 @@ const Wrapper = styled.section`
     margin-bottom: 0.5rem;
   }
   .price {
-    color: var(--clr-primary-6);
+    color: var(--clr-green-ines);
     margin-bottom: 0.75rem;
   }
   p {

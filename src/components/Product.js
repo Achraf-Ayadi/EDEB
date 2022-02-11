@@ -10,7 +10,7 @@ const Product = ({ id, name, image, price }) => {
       <div className='container'>
         <img src={image} alt={name} />
         <Link className='link' to={`/products/${id}`}>
-          <FaSearch className='icon'/>
+          <FaSearch className='icon' />
         </Link>
       </div>
       <footer>
@@ -39,7 +39,7 @@ const Wrapper = styled.article`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: var(--clr-primary-5);
+    background: var(--clr-green-ines);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -73,7 +73,7 @@ const Wrapper = styled.article`
   }
 
   footer p {
-    color: var(--clr-primary-5);
+    color: var(--clr-green-ines);
     letter-spacing: var(--spacing);
   }
 `

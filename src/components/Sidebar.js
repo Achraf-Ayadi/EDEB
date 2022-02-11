@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../assets/logo_housestore1.jpg'
+import logo from '../images/aiguille screen-2.png'
 import { Link } from 'react-router-dom'
 import { useProductsContext } from '../context/products_context'
 import { FaTimes } from 'react-icons/fa'
@@ -18,7 +18,7 @@ const Sidebar = () => {
         className={`${isSidebarOpen ? 'sidebar show-sidebar' : 'sidebar'}`}
       >
         <div className='sidebar-header'>
-          <img src={logo} alt='comfysloth' />
+          <img className='logo' src={logo} alt='EDEB' />
           <button className='close-btn' onClick={closeSidebar}>
             <FaTimes />
           </button>
@@ -70,7 +70,7 @@ const SidebarContainer = styled.div`
   }
   .logo {
     justify-self: center;
-    height: 45px;
+    height: 70px;
   }
   .links {
     margin-bottom: 2rem;

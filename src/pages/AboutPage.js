@@ -1,26 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
 import { PageHero } from '../components'
-import aboutImg from '../assets/hero-bcg.jpeg'
+import videoAbout from '../video/video_About.mp4'
 
 const AboutPage = () => {
   return (
     <main>
       <PageHero title='about' />
       <Wrapper className='page section section-center'>
-        <img src={aboutImg} alt='desk' />
+        <video controls autoPlay muted loop className='video-container'>
+          <source src={videoAbout} type='video/mp4' />
+          Sorry, your browser doesn't support embedded videos.
+        </video>
         <article>
           <div className='title'>
             <h2>our story</h2>
             <div className='underline'></div>
           </div>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis,
-            quos soluta commodi nisi ab inventore aliquid sit sapiente
-            dignissimos accusantium totam ratione? Iusto praesentium architecto
-            dolor, repudiandae voluptatum quidem illo! Voluptatum, dolorum odit
-            assumenda unde, amet repellendus ad voluptate error hic culpa
-            officiis accusantium dicta earum quia atque. Doloribus, perferendis?{' '}
+            La signature EDEB enveloppe la décence, la durabilité, la
+            singularité. La part belle est ainsi laissée à la tradition par la
+            transmission de savoirs-faire et de styles anciens. Le tout
+            agrémenté de contemporanéité.
           </p>
         </article>
       </Wrapper>
@@ -31,7 +32,7 @@ const AboutPage = () => {
 const Wrapper = styled.section`
   display: grid;
   gap: 4rem;
-  img {
+  video {
     width: 100%;
     display: block;
     border-radius: var(--radius);

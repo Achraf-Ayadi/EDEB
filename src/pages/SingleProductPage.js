@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react'
-import { useParams, useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import { useProductsContext } from '../context/products_context'
-import { single_product_url as url } from '../utils/constants'
+import TableSize from '../components/TableSize'
 import { formatPrice } from '../utils/helpers'
+import { DataSingleProducts } from '../utils/Data'
+
 import {
   Loading,
   Error,
   ProductImages,
   AddToCart,
-  Stars,
   PageHero,
 } from '../components'
 import styled from 'styled-components'
@@ -16,16 +17,15 @@ import { Link } from 'react-router-dom'
 
 const SingleProductPage = () => {
   const {
-    fetchSingleProduct,
     singleProduct,
+    fetchSingleProduct,
     error_singleProduct: error,
     loading_singleProduct: loading,
   } = useProductsContext()
   const { id } = useParams()
   const history = useHistory()
-  // console.log(singleProduct)
   useEffect(() => {
-    fetchSingleProduct(`${url}${id}`)
+    fetchSingleProduct(id, DataSingleProducts)
     // eslint-disable-next-line
   }, [id])
 
@@ -38,19 +38,9 @@ const SingleProductPage = () => {
     // eslint-disable-next-line
   }, [error])
 
-  const {
-    stock,
-    price,
+  const { stock, price, company, images, name, description } = singleProduct
 
-    company,
-
-    images,
-    reviews,
-    stars,
-    name,
-    description,
-  } = singleProduct
-  // console.log(singleProduct)
+  console.log(singleProduct)
 
   if (loading) {
     return <Loading />
@@ -69,21 +59,24 @@ const SingleProductPage = () => {
           {images && <ProductImages images={images} />}
           <section className='content'>
             <h2>{name}</h2>
-            <Stars reviews={reviews} stars={stars} />
+            {/* <Stars reviews={reviews} stars={stars} /> */}
             <h5 className='price'>{formatPrice(price)}</h5>
-            <p className='desc'>{description}</p>
+            <p className='desc'>
+              {description}
+              <TableSize />
+            </p>
             <p className='info'>
               <span>available : </span>
               {`${stock >= 1 ? 'in stock' : ' out of stock'}`}
             </p>
-            <p className='info'>
+            {/* <p className='info'>
               <span>SKU : </span>
               {id}
-            </p>
-            <p className='info'>
+            </p> */}
+            {/* <p className='info'>
               <span>brand : </span>
               {company}
-            </p>
+            </p> */}
             <hr />
             {stock > 0 && <AddToCart singleProduct={singleProduct} />}
           </section>
@@ -100,7 +93,7 @@ const Wrapper = styled.main`
     margin-top: 2rem;
   }
   .price {
-    color: var(--clr-primary-5);
+    color: var(--clr-green-ines);
   }
   .desc {
     line-height: 2;

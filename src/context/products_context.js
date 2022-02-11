@@ -1,7 +1,7 @@
-import axios from 'axios'
 import React, { useContext, useEffect, useReducer } from 'react'
 import reducer from '../reducers/products_reducer'
-import { products_url as url } from '../utils/constants'
+import { DataProducts } from '../utils/Data'
+
 import {
   SIDEBAR_OPEN,
   SIDEBAR_CLOSE,
@@ -25,9 +25,9 @@ const initialState = {
 }
 
 const ProductsContext = React.createContext()
-
 export const ProductsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
+
   const openSidebar = () => {
     dispatch({ type: SIDEBAR_OPEN })
   }
@@ -35,22 +35,22 @@ export const ProductsProvider = ({ children }) => {
     dispatch({ type: SIDEBAR_CLOSE })
   }
 
-  const fetchProducts = async (url) => {
+  const fetchProducts = (DataProducts) => {
     dispatch({ type: GET_PRODUCTS_BEGIN })
     try {
-      const response = await axios.get(url)
-      const products = response.data
+      const products = DataProducts
+
       dispatch({ type: GET_PRODUCTS_SUCCESS, payload: products })
     } catch (error) {
       dispatch({ type: GET_PRODUCTS_ERROR })
     }
   }
 
-  const fetchSingleProduct = async (url) => {
+  const fetchSingleProduct = (num, data) => {
     dispatch({ type: GET_SINGLE_PRODUCT_BEGIN })
     try {
-      const response = await axios.get(url)
-      const product = response.data
+      const product = data.filter((item) => num === item.id)
+
       dispatch({ type: GET_SINGLE_PRODUCT_SUCCESS, payload: product })
     } catch (error) {
       dispatch({ type: GET_SINGLE_PRODUCT_ERROR })
@@ -59,7 +59,7 @@ export const ProductsProvider = ({ children }) => {
 
   useEffect(() => {
     // eslint-disable-next-line
-    fetchProducts(url)
+    fetchProducts(DataProducts)
   }, [])
 
   return (

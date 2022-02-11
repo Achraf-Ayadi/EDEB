@@ -1,29 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import heroBcg from '../assets/hero-bcg.jpeg'
-import heroBcg2 from '../assets/hero-bcg-2.jpeg'
+import video_Home from '../video/video_home.mp4'
 
 const Hero = () => {
   return (
     <Wrapper className='section-center'>
       <article className='content'>
-        <h1>
-          design your <br />
-          comfort zone
-        </h1>
+        <h1>EDEB</h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id
-          dignissimos repellat error vero rem, rerum natus doloremque possimus
-          perspiciatis quisquam.
+          Grâce au développement d'un réseau international, sont mis à l'honneur
+          les trésors enfouis du monde. Découvrez la première collection et
+          laissez vous entrainer dans l'univers d'EDEB...
         </p>
         <Link to='/products' className='btn hero-btn'>
           shop now
         </Link>
       </article>
       <article className='img-container'>
-        <img src={heroBcg} alt='hero1' className='main-img' />
-        <img src={heroBcg2} alt='work' className='accent-img' />
+        <video controls autoPlay muted loop className='video-container'>
+          <source src={video_Home} type='video/mp4' />
+          Sorry, your browser doesn't support embedded videos.
+        </video>
       </article>
     </Wrapper>
   )
@@ -49,6 +47,7 @@ const Wrapper = styled.section`
     grid-template-columns: 1fr 1fr;
     gap: 8rem;
     h1 {
+      font-size: 2rem;
       margin-bottom: 2rem;
     }
     p {
@@ -78,7 +77,8 @@ const Wrapper = styled.section`
       transform: translateX(-50%);
       border-radius: var(--radius);
     }
-    .img-container::before {
+    ${
+      '' /* .img-container::before {
       content: '';
       position: absolute;
       width: 10%;
@@ -87,6 +87,7 @@ const Wrapper = styled.section`
       bottom: 0%;
       left: -8%;
       border-radius: var(--radius);
+    } */
     }
   }
 `

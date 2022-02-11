@@ -1,15 +1,15 @@
 import React from 'react'
-import { FaShoppingCart, FaUserMinus, FaUserPlus } from 'react-icons/fa'
+import { FaShoppingCart } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { useProductsContext } from '../context/products_context'
 import { useCartContext } from '../context/cart_context'
-import { useUserContext } from '../context/user_context'
+
 
 const CartButtons = () => {
   const { closeSidebar } = useProductsContext()
-  const { totalItems, clearCart } = useCartContext()
-  const { loginWithRedirect, myUser, logout } = useUserContext()
+  const { totalItems } = useCartContext()
+
   return (
     <Wrapper className='cart-btn-wrapper'>
       <Link className='cart-btn' to='/cart' onClick={closeSidebar}>
@@ -19,26 +19,6 @@ const CartButtons = () => {
           <span className='cart-value'>{totalItems}</span>
         </span>
       </Link>
-      {myUser ? (
-        <button
-          className='auth-btn'
-          type='button'
-          onClick={() => {
-            clearCart()
-            logout({
-              returnTo: window.location.origin,
-            })
-          }}
-        >
-          Logout
-          <FaUserMinus />
-        </button>
-      ) : (
-        <button className='auth-btn' type='button' onClick={loginWithRedirect}>
-          Login
-          <FaUserPlus />
-        </button>
-      )}
     </Wrapper>
   )
 }
@@ -70,7 +50,7 @@ const Wrapper = styled.div`
     position: absolute;
     top: -10px;
     right: -16px;
-    background: var(--clr-primary-5);
+    background: var(--clr-green-ines);
     width: 16px;
     height: 16px;
     display: flex;

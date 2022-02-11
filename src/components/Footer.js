@@ -6,7 +6,7 @@ const Footer = () => {
       <h5>
         &copy;
         {new Date().getFullYear()}
-        <span> The House Store</span>
+        <span> EDEB</span>
       </h5>
       <h5>All right reserved</h5>
     </Wrapper>
@@ -22,7 +22,7 @@ const Wrapper = styled.footer`
   background: var(--clr-black);
   text-align: center;
   span {
-    color: var(--clr-primary-5);
+    color: var(--clr-green-ines);
   }
   h5 {
     color: var(--clr-white);

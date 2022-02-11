@@ -3,19 +3,18 @@ import styled from 'styled-components'
 
 const ProductImages = ({ images }) => {
   const [mainImage, setMainImage] = useState(images[0])
-  // console.log(images)
+  console.log(mainImage)
   return (
     <Wrapper>
-      <img src={mainImage.url} alt='main' className='main' />
+      <img src={mainImage} alt='main' className='main' />
       <div className='gallery'>
         {images.map((image, index) => {
-          const { url, filename } = image
           return (
             <img
-              src={url}
-              alt={filename}
+              src={image}
+              alt='name'
               key={index}
-              className={`${url === mainImage.url ? 'active' : null}`}
+              className={`${image === mainImage ? 'active' : null}`}
               onClick={() => setMainImage(images[index])}
             />
           )
