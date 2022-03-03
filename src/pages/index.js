@@ -7,6 +7,8 @@ import HomePage from './HomePage'
 import PrivateRoute from './PrivateRoute'
 import ProductsPage from './ProductsPage'
 import SingleProductPage from './SingleProductPage'
+import InfoClientPage from './InfoClientPage'
+import condition from './condition'
 
 export {
   AboutPage,
@@ -18,4 +20,6 @@ export {
   PrivateRoute,
   ProductsPage,
   SingleProductPage,
+  InfoClientPage,
+  condition,
 }

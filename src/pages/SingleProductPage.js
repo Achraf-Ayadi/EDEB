@@ -38,7 +38,7 @@ const SingleProductPage = () => {
     // eslint-disable-next-line
   }, [error])
 
-  const { stock, price, company, images, name, description } = singleProduct
+  const { stock, price, images, name, description } = singleProduct
 
   console.log(singleProduct)
 
@@ -69,14 +69,6 @@ const SingleProductPage = () => {
               <span>available : </span>
               {`${stock >= 1 ? 'in stock' : ' out of stock'}`}
             </p>
-            {/* <p className='info'>
-              <span>SKU : </span>
-              {id}
-            </p> */}
-            {/* <p className='info'>
-              <span>brand : </span>
-              {company}
-            </p> */}
             <hr />
             {stock > 0 && <AddToCart singleProduct={singleProduct} />}
           </section>

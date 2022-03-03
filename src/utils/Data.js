@@ -28,7 +28,7 @@ export const DataProducts = [
     id: '2',
     name: 'Qamono broderies ottomanes argent',
     price: 6000,
-    image: silver1,
+    image: silver3,
 
     colors: ['#c0c0c0'],
     // company: 'marcos',
@@ -41,7 +41,7 @@ export const DataProducts = [
     id: '3',
     name: 'Qamono  noir broderies ottomanes',
     price: 6000,
-    image: noir1,
+    image: noir2,
 
     colors: ['#000000'],
     // company: 'marcos',
@@ -55,8 +55,28 @@ export const DataProducts = [
 export const DataSingleProducts = [
   {
     id: '1',
-    stock: 3,
+    stock: 1,
     price: 6000,
+    taille: [
+      {
+        size: 's',
+        stock: 1,
+      },
+      {
+        size: 'm',
+        stock: 1,
+      },
+
+      {
+        size: 'l',
+        stock: 1,
+      },
+
+      {
+        size: 'xl',
+        stock: 1,
+      },
+    ],
     shipping: true,
     colors: ['#e9c818'],
     category: 'qamono',
@@ -70,12 +90,32 @@ export const DataSingleProducts = [
   },
   {
     id: '2',
-    stock: 3,
+    stock: 1,
     price: 6000,
+    taille: [
+      {
+        size: 's',
+        stock: 1,
+      },
+      {
+        size: 'm',
+        stock: 1,
+      },
+
+      {
+        size: 'l',
+        stock: 1,
+      },
+
+      {
+        size: 'xl',
+        stock: 1,
+      },
+    ],
     shipping: true,
     colors: ['#c0c0c0'],
     category: 'qamono',
-    images: [silver1, silver2, silver3, silver4],
+    images: [silver3, silver1, silver2, silver4],
     // reviews: 25,
     // stars: 4.9,
     name: 'Qamono broderies ottomanes argent',
@@ -85,12 +125,32 @@ export const DataSingleProducts = [
   },
   {
     id: '3',
-    stock: 3,
+    stock: 1,
     price: 6000,
+    taille: [
+      {
+        size: 's',
+        stock: 1,
+      },
+      {
+        size: 'm',
+        stock: 1,
+      },
+
+      {
+        size: 'l',
+        stock: 1,
+      },
+
+      {
+        size: 'xl',
+        stock: 1,
+      },
+    ],
     shipping: true,
     colors: ['#000000'],
     category: 'qamono',
-    images: [noir1, noir2, noir3],
+    images: [noir2, noir1, noir3],
     // reviews: 25,
     // stars: 4.9,
     name: 'Qamono  noir broderies ottomanes',
@@ -99,5 +159,3 @@ export const DataSingleProducts = [
     // company: 'marcos',
   },
 ]
-
-

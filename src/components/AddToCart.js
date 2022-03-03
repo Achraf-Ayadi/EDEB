@@ -7,10 +7,13 @@ import AmountButtons from './AmountButtons'
 
 const AddToCart = ({ singleProduct }) => {
   const { addToCart } = useCartContext()
-  const { id, colors, stock } = singleProduct
-  const [mainColor, setMainColor] = useState(colors[0])
-  const [amount, setAmount] = useState(1)
+  const { id, colors, taille, stock } = singleProduct
 
+  const [mainColor, setMainColor] = useState(colors[0])
+  const [mainSize, setMainSize] = useState(taille[0].size)
+  const [amount, setAmount] = useState(1)
+  // taille.map((item) => {
+  // })
   const increase = () => {
     setAmount((oldAmount) => {
       let newAmount = oldAmount + 1
@@ -45,6 +48,26 @@ const AddToCart = ({ singleProduct }) => {
                 onClick={() => setMainColor(color)}
               >
                 {mainColor === color ? <FaCheck /> : null}
+              </button>
+            )
+          })}
+        </div>
+      </div>
+      <div className='colors'>
+        <span>taille : </span>
+        <div>
+          {taille.map((item, index) => {
+            const { size, stock } = item
+            return (
+              <button
+                key={index}
+                className={`${
+                  mainSize === size ? 'color-btn active' : 'color-btn'
+                }`}
+                style={{ background: 'black', color: 'white' }}
+                onClick={() => setMainSize(size)}
+              >
+                {size}
               </button>
             )
           })}

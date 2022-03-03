@@ -9,6 +9,8 @@ import {
   HomePage,
   ProductsPage,
   SingleProductPage,
+  InfoClientPage,
+  condition,
   AuthWrapper,
   PrivateRoute,
 } from './pages/index'
@@ -33,8 +35,14 @@ function App() {
           path='/products/:id'
           children={<SingleProductPage />}
         ></Route>
-        <Route exact path='/checkout'>
+        <Route exact path='/checkout-1'>
+          <InfoClientPage />
+        </Route>
+        <Route exact path='/checkout-2'>
           <CheckoutPage />
+        </Route>
+        <Route exact path='/condition'>
+          <condition />
         </Route>
         <Route exact path='/cart'>
           <CartPage />
